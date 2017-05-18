@@ -95,7 +95,7 @@ Variables "title" and "purpose" look similar. "title" has 20962 unique variables
 lc[, "title"] <- NULL
 ```
 
-## Step 5 - Formatting
+## Step 4 - Formatting
 
 ### Loan Purpose
 There are 5 NA values which need to be assigned to the "other" column. 
@@ -204,7 +204,7 @@ This data set will be used to compare the difference between good and bad loans 
 write.csv(df.lng, file = "lc_numeric_cols.csv")
 ```
 
-## Step 7 - Normalising Data
+## Step 5 - Normalising Data
 
 There are 2 ways to do this - normalizing or standardizing.
 
@@ -215,7 +215,7 @@ lc$fico_norm <- scale(lc$fico_range_mean, center = TRUE, scale = TRUE)
 
 ```
 
-## Step 7 - One Hot Encoding
+## Step 6 - One Hot Encoding
 
 Can potentially change this to a new df name as this will mainly be used for the data analysis whilst everything up to this point will be used for data visualisation. Hence, will change to lc_OHE.
  
