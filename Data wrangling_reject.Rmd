@@ -111,10 +111,19 @@ Firstly, want to select just the columns from the approved data set that will be
 Add in a "Status" feature in the approved data set and set to "approved".
 Join both data frames using the union() function. 
 
+
 ```{r}
 lc_comparison = lc
 lc_comparison <- select(lc_comparison, emp_length_yrs, loan_amnt, issue_d, fico_range_mean, loan_status, dti)
 lc_comparison <- lc_comparison  %>% mutate("Status" = "approved")
 lc_comp <- union(lcr, lc_comparison)
+```
+Next, need to normalise the FICO column which is done using similar code to what was used for the approved data.
+
+```{r}
+lc_comp$fico_norm <- scale(lc_comp$fico_range_mean, center = TRUE, scale = TRUE)
 
 write.csv(lc_comp, file = "lc_combined.csv")
+```
+
+
